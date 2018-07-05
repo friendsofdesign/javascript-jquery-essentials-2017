@@ -7,3 +7,4 @@
 * [Introduction to Client-Side Scripting](chapter_4.md)
 * [The Developer Environment](chapter_5.md)
 * [The DOM](chapter_6.md)
+* [Common Elements of Programming Languages](chapter_7.md)
