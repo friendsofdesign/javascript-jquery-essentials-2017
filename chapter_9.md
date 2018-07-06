@@ -584,7 +584,7 @@ You need also properties like the price of the book.
 
 The following prototype can then be written:
 
-```javascripy
+```javascript
 function Book(title, author, price) {
   this.title = title;
   this.author = auhtor;
@@ -634,6 +634,7 @@ function, so to the object we are currently creating. Second, when we declare​
 a defined constructor.
 
 #### Object Methods
+
 The book has several properties but no method. Our site is required to sell
 books, the obvious action we can perform with a book is to buy it. A function
 managing the buying action must then be added:
@@ -751,359 +752,458 @@ This is done using the following functions.
 * `.splice`: Add or remove element from the middle of an array
 
 The following examples describe how to use these functions.
-var personList = [‘Anna’, ‘Bob’, ‘Chris’];
-//Array of people
+
+```javascript
+var personList = ['Anna', 'Bob', 'Chris'];
+// Array of people
+
 var element = personList.shift();
-Client-Side Scripting: JavaScript and JQuery | Evening Course | 2016 © Friends of Design - Academy of Digital Arts
-25Client-Side Scripting: JavaScript and JQuery | Class Notes
-//Anna is removed from the array
-var length = personList.unshift(‘Andile’);
-//Add Andile to beginning of the array
+// Anna is removed from the array
+
+var length = personList.unshift('Andile');
+// Add Andile to beginning of the array
+
 element = personList.pop();
-//Removes Chris from the array
-length = personList.push(‘Craig’);
-//Add Craig to the end of the Array
-element = personList.splice(1,0, ‘Zoe‘);
-//Add item ‘Zoe’ at the position one
-var removed = personList.splice(1, 0, ‘Zoe’);
-//personList === [‘Andile’, ‘Zoe’, ‘Bob’, ‘Craig’]
-//removed === [] thus empty array
-//Removes two items at the position one removed = personList.splice(1, 2);
-//personList === [‘Andile’, ‘Craig’]
-//removed === [‘Zoe’, ‘Bob’]
-Loops
-In programming, a loop is a code section that is executed repeatedly until a certain condition is
-met.
-While loops
-In JavaScript, the simplest loop is the while loop. The while loop executes some code while a certain
-condition is true. For instance, the following code will be executed while the length of the
-personList array is greater or equal than zero, thus while the array contains elements.
+// Removes Chris from the array
+
+length = personList.push('Craig');
+// Add Craig to the end of the Array
+
+element = personList.splice(1,0, 'Zoe');
+// Add item 'Zoe' at the position one
+
+var removed = personList.splice(1, 0, 'Zoe');
+// personList === ['Andile', 'Zoe', 'Bob', 'Craig']
+// removed === [] thus empty array
+// Removes two items at the position one removed = personList.splice(1, 2);
+
+// personList === ['Andile', 'Craig']
+// removed === ['Zoe', 'Bob']
+```
+
+### Loops
+
+In programming, a loop is a code section that is executed repeatedly until a
+certain condition is met.
+
+#### While loops
+
+In JavaScript, the simplest loop is the while loop. The while loop executes some
+code while a certain condition is true. For instance, the following code will be
+executed while the length of the `personList` array is greater or equal than
+zero, thus while the array contains elements.
+
+```javascript
 while(personList.length>0) {
-windows.alert(personList.pop()) ;
+  windows.alert(personList.pop()) ;
 }
-At each iteration, the last element of “ ​
-personList” ​
-is popped and displayed in a popup. When
-eventually the array is empty, the condition ​
-“personList.length > 0 ​
-” becomes false and the
-loop stops.
-Client-Side Scripting: JavaScript and JQuery | Evening Course | 2016 © Friends of Design - Academy of Digital Arts
-26Client-Side Scripting: JavaScript and JQuery | Class Notes
-I’m sure you already came across the following annoying situation. You are quietly browsing a web
-page, when suddenly it freezes and become unusable until eventually the browser displays a
-message like “ ​
-A script on this page may be busy, or it may have stopped
-responding. You can stop the script now ​
-”. Why does this happen? In most of the cases,
-it’s because JavaScript is stucked in what is called an infinite loop. The condition to stop the loop is
-never met, thus the loop is executed infinitely.
+```
+
+At each iteration, the last element of `personList` is popped and displayed in a
+popup. When eventually the array is empty, the condition `personList.length > 0`​
+becomes false and the loop stops.
+
+I'm sure you already came across the following annoying situation. You are
+quietly browsing a web page, when suddenly it freezes and become unusable until
+eventually the browser displays a message like "​A script on this page may be
+busy, or it may have stopped responding. You can stop the script now". Why does
+this happen? In most of the cases, it’s because JavaScript is stucked in what is
+called an infinite loop. The condition to stop the loop is never met, thus the
+loop is executed infinitely.
+
+```javascript
 while(True) { }
-The condition “ ​
-True ​
-” will be true forever. That’s a pretty obvious case but keep in mind that loops
-can in many ways be at the origin of bugs.
-For loops
-A for loop is a slightly more complex while loop, but the general principle is the same.
-Let’s examine the following for loop to see how it works.
+```
+
+The condition `True` will be true forever. That’s a pretty obvious case but keep
+in mind that loops can in many ways be at the origin of bugs.
+
+#### For loops
+
+A for loop is a slightly more complex while loop, but the general principle is
+the same. Let’s examine the following for loop to see how it works.
+
+```javascript
 for(var i=0; i<3; i++) {
-alert(i.toString()) ;
+  alert(i.toString()) ;
 }
-Executing this snippet of code will display three popups with the messages ‘0’, ‘1’ and ‘2’.
-How does it work?
-When we enter the “for loop”, the code before the first semicolon, “ ​
-var i = 0 ​
-”, is executed. It’s
-called the loop initialization. Then, the condition between the two semicolons, “ ​
-i < 3 ​
-”, is
-evaluated. If that condition is true, which is the case so far because now i equals zero, the code
-between the two brackets, thus the popup message, is executed.
-That’s when the first message box is displayed. After that, the third statement, “ ​
-i++ ​
-”, is executed.
-“ ​
-i++ ​
-” means “ ​
-i=i+1 ​
-”, it increments the value of “ ​
-i ​
-”, which was zero and is now one. Then the loop
-starts over again : condition evaluation, if it’s true loop code execution, and incrementation of the
-value of “ ​
-i ​
-”. When “ ​
-i ​
-” reaches three, the condition “ ​
-i<3 ​
-” is false and the loop stops.
-For In Loops
-The “for in loop” is a special loop which allows you to iterate to every property of an object. At every
-iteration of the loop the value before the keyword will be equal to the property value.
-myBook = new Book(‘JavaScript for Dummies’, ‘John Doe’, 199)
-Client-Side Scripting: JavaScript and JQuery | Evening Course | 2016 © Friends of Design - Academy of Digital Arts
-27Client-Side Scripting: JavaScript and JQuery | Class Notes
+```
+
+Executing this snippet of code will display three popups with the messages `0`,
+`1` and `2`.
+
+##### How does it work?
+
+When we enter the “for loop”, the code before the first semicolon, `var i = 0`,
+is executed. It’s called the loop initialization. Then, the condition between
+the two semicolons, `i < 3`, is evaluated. If that condition is true, which is
+the case so far because now i equals zero, the code between the two brackets,
+thus the popup message, is executed.
+
+That’s when the first message box is displayed. After that, the third statement,
+`i++`, is executed. `i++` means `i = i + 1`, it increments the value of `i`,
+which was zero and is now one. Then the loop starts over again: condition
+evaluation, if it’s true loop code execution, and incrementation of the value of
+`i`. When `i`reaches three, the condition `i<3` is false and the loop stops.
+
+#### For In Loops
+
+The "for in loop" is a special loop which allows you to iterate to every
+property of an object. At every iteration of the loop the value before the
+keyword will be equal to the property value.
+
+```javascript
+myBook = new Book('JavaScript for Dummies', ‘John Doe’, 199);
+
 for(prop in myBook) {
-alert(prop + ‘ : ‘ myBook[prop].toString())
-}
-The previous code will display a popup for every property of the book object, with a message
-including the name of the property and its value. So if the Book prototype is the same as the one
-from the previous chapter, it will be ‘title: JavaScript for Dummies’, then ‘author: John Doe’, and
-eventually, ‘price: 199’.
-Iterate through Arrays with Loops
-Practically, one of the most common usages of the loops is to use them in combinations with
-arrays to iterate through it. If you need to access to each element of an array of length equals to
-five, you will have to access the element zero, one, two, three and four.
-Practically, it’s again an example which is the better explanation. The following code will display a
-popup for each person in personList, containing the person’s name :
+  alert(prop + ': ' myBook[prop].toString());
+};
+```
+
+The previous code will display a popup for every property of the book object,
+with a message including the name of the property and its value. So if the Book
+prototype is the same as the one from the previous chapter, it will be
+`title: JavaScript for Dummies`, then `author: John Doe`, and eventually,
+`price: 199`.
+
+#### Iterate through Arrays with Loops
+
+Practically, one of the most common usages of the loops is to use them in
+combinations with arrays to iterate through it. If you need to access to each
+element of an array of length equals to five, you will have to access the
+element zero, one, two, three and four.
+
+Practically, it's again an example which is the better explanation. The
+following code will display a popup for each person in personList, containing
+the person's name:
+
+```javascript
 for(var i = 0; i < personList.length; i++) {
-alert(personList[i]) ;
+  alert(personList[i]) ;
 }
-At the first iteration, “ ​
-i ​
-” equals zero, so the first element of the array, “ ​
-personList[0] ​
-”, is
-displayed. At the second iteration, “ ​
-i ​
-” equals one and “ ​
-personList[1] ​
-” is displayed. This goes on
-until the condition “ ​
-i < personList.length === False ​
-”, thus when all the elements have been
+```
+
+At the first iteration, `i` equals zero, so the first element of the array,
+`personList[0]`, is displayed. At the second iteration, `i` equals one and
+`personList[1]` is displayed. This goes on until the condition
+`i < personList.length === False`, thus when all the elements have been
 displayed.
-Selecting DOM Elements with JavaScript
-JavaScript allows us to manipulate the HTML and values or data displayed on a website, it allows us
-to add or remove and update the information on the fly. However it’s useful to be able to identify
-where in the HTML this will occur. We would obviously need to inform our code where the data is
-and how to change it. For this reason we need to know how to select HTML elements.
-JavaScript allows the selection of HTML elements via numerous identifiers, i.e. HTML tag names,
+
+## Selecting DOM Elements with JavaScript
+
+JavaScript allows us to manipulate the HTML and values or data displayed on a
+website, it allows us to add or remove and update the information on the fly.
+However it's useful to be able to identify where in the HTML this will occur. We
+would obviously need to inform our code where the data is and how to change it.
+For this reason we need to know how to select HTML elements. JavaScript allows
+the selection of HTML elements via numerous identifiers, i.e. HTML tag names,
 classes applied to HTML tags and IDs applied to HTML tags.
-Basic JavaScript Selector Methods
-Client-Side Scripting: JavaScript and JQuery | Evening Course | 2016 © Friends of Design - Academy of Digital Arts
-28Client-Side Scripting: JavaScript and JQuery | Class Notes
-1.
-document.querySelector(selector) - selects HTML elements by first matching class name, ID
-or tag name
-2.
-document.querySelectorAll(selector) - selects all HTML elements by matching class name,
-ID or tag name
-3. document.getElementById(idname) - selects a single HTML element by ID
-4. document.getElementsByTagName(tagname) - selects HTML elements by tag name
-5. document.getElementsByClassName(class) - selects HTML elements by class name
-Each HTML element is regarded by JavaScript as a Node in the DOM. Using the query selectors
-above we can identify these nodes and use JavaScript to manipulate them or affect the data they
-contain.
-var userName = document.querySelector(“#username”);
-// select a div with an ID of “username”
-If know exactly what type of identifier we need to use to select the node we can use another
-selector method.
-<div class=”user­name”>John Smith</div>
+
+### Basic JavaScript Selector Methods
+
+1. `document.querySelector(selector)`: selects HTML elements by first matching
+   class name, ID or tag name
+2. `document.querySelectorAll(selector)`: selects all HTML elements by matching
+class name, ID or tag name
+3. `document.getElementById(idname)`: selects a single HTML element by ID
+4. `document.getElementsByTagName(tagname)`: selects HTML elements by tag name
+5. `document.getElementsByClassName(class)`: selects HTML elements by class name
+
+Each HTML element is regarded by JavaScript as a Node in the DOM. Using the
+query selectors above we can identify these nodes and use JavaScript to
+manipulate them or affect the data they contain.
+
+```javascript
+var userName = document.querySelector('#username');
+// select a div with an ID of 'username'
+```
+
+If know exactly what type of identifier we need to use to select the node we can
+use another selector method.
+
+```html
+<div class="user­name">John Smith</div>
+```
+
+```javascript
 // the HTML div element we want to select with a specific class name
-var userName = document.getElementByClassName(“user­name”);
-We can also select HTML elements using their relationships to each other. Child to parent, parent
-to child or even siblings relationships.
-Child and Parent DOM Relationships
-A child to parent relationship is characterised by being able to identify the parent and thus asking
-JavaScript to select the child element in the HTML or DOM hierarchy. A parent to child relationship
-is characterised by being able to identify the child and then asking JavaScript to select the parent
-element of the child in the HTML or DOM hierarchy. Siblings are child elements which exist inside
-the same parent element. Siblings ask JavaScript to identify the neighbouring HTML elements.
-<div class=”heading”>
-<h2>The JavaScript Document</h2>
+var userName = document.getElementByClassName('user­name');
+```
+
+We can also select HTML elements using their relationships to each other. Child
+to parent, parent to child or even siblings relationships.
+
+### Child and Parent DOM Relationships
+
+A child to parent relationship is characterised by being able to identify the
+parent and thus asking JavaScript to select the child element in the HTML or DOM
+hierarchy. A parent to child relationship is characterised by being able to
+identify the child and then asking JavaScript to select the parent element of
+the child in the HTML or DOM hierarchy. Siblings are child elements which exist
+inside the same parent element. Siblings ask JavaScript to identify the
+neighbouring HTML elements.
+
+```html
+<div class="heading">
+  <h2>The JavaScript Document</h2>
 </div>
-var myText = document.getElementByClassName("heading").childNodes[0];
-Client-Side Scripting: JavaScript and JQuery | Evening Course | 2016 © Friends of Design - Academy of Digital Arts
-29Client-Side Scripting: JavaScript and JQuery | Class Notes
-// here we are selecting the first child <h2> in the div with the class
-“heading”
-There are a number of different ways to select or identify nodes in JavaScript. If we wanted to
-create new elements or nodes in the DOM we can use a number of JS methods to do so.
-Dynamically Adding Element
-JavaScript allows us to create new DOM nodes that can be inserted into our webpages. The
-simplest method is as follows.
+```
+
+```javascript
+var myText = document.getElementByClassName('heading').childNodes[0];
+// here we are selecting the first child <h2> in the div with the class 'heading'
+```
+
+There are a number of different ways to select or identify nodes in JavaScript.
+If we wanted to create new elements or nodes in the DOM we can use a number of
+JS methods to do so.
+
+### Dynamically Adding Element
+
+JavaScript allows us to create new DOM nodes that can be inserted into our
+webpages. The simplest method is as follows.
+
+```javascript
 var element = document.createElement(tagName);
-Above we are asking the document or DOM to use the “createElement” method to create a new
-HTML tag of our choosing.
-<script>
-var heading = document.createElement("h1");
-var headingText = document.createTextNode("Hey look at me! I'm
-alive!!");
+```
+
+Above we are asking the document or DOM to use the `createElement` method to
+create a new HTML tag of our choosing.
+
+```javascript
+var heading = document.createElement('h1');
+var headingText = document.createTextNode("Hey look at me! I'm alive!!");
+
 heading.appendChild(headingText);
 document.body.appendChild(heading);
-</script>
-Here we are simply creating a new “h1” tag that is empty and then filling it with some text. For this
-to happen we need to create a DOM text node then add it to the heading “h1”. We can also do it
-another way like below.
-<script>
-var newHeading = document.createElement("h1");
+```
+
+Here we are simply creating a new `h1` tag that is empty and then filling it
+with some text. For this to happen we need to create a DOM text node then add it
+to the heading `h1`. We can also do it another way like below.
+
+```javascript
+var newHeading = document.createElement('h1');
 document.body.appendChild(newHeading);
 newHeading.innerHTML = "I'm also alive! Hooray!";
-</script>
-In the example above instead of creating a text node in the DOM we simply appended the
-“newHeading” element we created to the end of our page and only after it was created on the page
-added the information to the HTML using the “innerHTML” method. This is a nice simple way to do
-Client-Side Scripting: JavaScript and JQuery | Evening Course | 2016 © Friends of Design - Academy of Digital Arts
-30Client-Side Scripting: JavaScript and JQuery | Class Notes
-it quick however it may not always work. In some cases you will need to be more specific about
-where and how you display the values on the page. The following examples will illustrate.
-Dynamically Changing Elements (Nodes)
-In JS we are able to manipulate the DOM nodes as you have seen above, we can create, remove
-and replace nodes or elements as we need to using a number of basic methods in JS.
-● .appendChild() - add element to another parent at the end
-● .removeChild() - remove a child from a parent, we must remember to tell the DOM which
-parent we want to remove the child from
-● .replaceChild() - replace one element with another in a parent element
-● .insertBefore() - helps us insert the child in the parent before other parents.
-These 4 methods are the commonly used to manipulate child elements. In the previous example
-we showed how to append a new paragraph to a div with an id of “myArticle”. This is one of the
-most simple methods to add a child node to an existing element on the page. The other methods
-are a bit more strict and require that we inform the DOM of specific information first.
-In the case of the removeChild() method we need to inform the DOM which parent we want to
-remove the child from. Otherwise we will get an error as it won’t know which child node to remove.
-In the case of replaceChild() we need to list the node or element which needs to be remove and
-then indicate in the script which one will take it’s place. Similarly when using the insertBefore()
-method we need to tell the DOM before which child node of the parent we need it to insert the new
-node or element.
-Appending Child Node
-Example below shows how to append a child node to an existing div. Basically we are adding a new
-paragraph tag to an existing div.
+```
+
+In the example above instead of creating a text node in the DOM we simply
+appended the `newHeading` element we created to the end of our page and only
+after it was created on the page added the information to the HTML using the
+`innerHTML` method. This is a nice simple way to do it quick however it may not
+always work. In some cases you will need to be more specific about where and how
+you display the values on the page. The following examples will illustrate.
+
+### Dynamically Changing Elements (Nodes)
+
+In JS we are able to manipulate the DOM nodes as you have seen above, we can
+create, remove and replace nodes or elements as we need to using a number of
+basic methods in JS.
+
+* `.appendChild()`: add element to another parent at the end
+* `.removeChild()`: remove a child from a parent, we must remember to tell the
+  DOM which parent we want to remove the child from
+* `.replaceChild()`: replace one element with another in a parent element
+* `.insertBefore()`: helps us insert the child in the parent before other
+  parents.
+
+These 4 methods are the commonly used to manipulate child elements. In the
+previous example we showed how to append a new paragraph to a div with an id of
+`myArticle`. This is one of the most simple methods to add a child node to an
+existing element on the page. The other methods are a bit more strict and
+require that we inform the DOM of specific information first.
+
+In the case of the `removeChild()` method we need to inform the DOM which parent
+we want to remove the child from. Otherwise we will get an error as it won’t
+know which child node to remove. In the case of `replaceChild()` we need to list
+the node or element which needs to be remove and then indicate in the script
+which one will take it’s place. Similarly when using the insertBefore()
+method we need to tell the DOM before which child node of the parent we need it
+to insert the new node or element.
+
+#### Appending Child Node
+
+Example below shows how to append a child node to an existing div. Basically we
+are adding a new paragraph tag to an existing div.
+
+```html
 <div id="myArticle">
-<h2>My Article</h2>
-<p id="firstParagraph">This is my original paragraph and below this I
-will dynamically insert a new paragraph tag with JS.</p>
+  <h2>My Article</h2>
+  <p id="firstParagraph">This is my original paragraph and below this I will dynamically insert a new paragraph tag with JS.</p>
 </div>
+
 <script>
-Client-Side Scripting: JavaScript and JQuery | Evening Course | 2016 © Friends of Design - Academy of Digital Arts
-31Client-Side Scripting: JavaScript and JQuery | Class Notes
-//create new paragraph tag
-var paragraph = document.createElement('p');
-//create text node to put in p tag
-var newNode = document.createTextNode('Add this new text node to the
-paragraph tag.');
-//append the child to the p tag ­ add the text to the paragraph tags
-paragraph.appendChild(newNode);
-//identify the element on page we want to add it to ­ the div with id
-myArticle
-var element = document.getElementById("myArticle");
-// add the paragraph to the div myArticle
-element.appendChild(paragraph);
+  // Create new paragraph tag
+  var paragraph = document.createElement('p');
+  // Create text node to put in p tag
+  var newNode = document.createTextNode('Add this new text node to the paragraph tag.');
+
+  // Append the child to the p tag ­ add the text to the paragraph tags
+  paragraph.appendChild(newNode);
+  //identify the element on page we want to add it to ­ the div with id myArticle
+  var element = document.getElementById('myArticle');
+  // add the paragraph to the div myArticle
+  element.appendChild(paragraph);
 </script>
-Replace Child Node
-In the code below the new “paragraphC” element should appear before the first paragraph in the
-“myArticle” div.
+```
+
+#### Replace Child Node
+
+In the code below the new `paragraphC` element should appear before the first
+paragraph in the `myArticle` div.
+
+```html
 <div id="myArticle">
-<p id="paragraphA">This is a paragraph.</p>
-<p id="paragraphB">This is another paragraph.</p>
+  <p id="paragraphA">This is a paragraph.</p>
+  <p id="paragraphB">This is another paragraph.</p>
 </div>
+
 <script>
-var paragraphC = document.createElement("p");
-var myNewText = document.createTextNode("This is new text for the new
-paragraph tag.");
-paragraphC.appendChild(myNewText);
-var parent = document.getElementById("myArticle");
-var firstChild = document.getElementById("paragraphA");
-parent.replaceChild(paragraphC, firstChild);
+  var paragraphC = document.createElement('p');
+  var myNewText = document.createTextNode('This is new text for the new paragraph tag.'');
+
+  paragraphC.appendChild(myNewText);
+
+  var parent = document.getElementById('myArticle');
+  var firstChild = document.getElementById('paragraphA');
+
+  parent.replaceChild(paragraphC, firstChild);
 </script>
-Removing Child Nodes
-When removing we need to be very specific as the DOM will need to know the parent of the
-element we are looking to remove.
-Client-Side Scripting: JavaScript and JQuery | Evening Course | 2016 © Friends of Design - Academy of Digital Arts
-32Client-Side Scripting: JavaScript and JQuery | Class Notes
+```
+
+#### Removing Child Nodes
+
+When removing we need to be very specific as the DOM will need to know the
+parent of the element we are looking to remove.
+
+```html
 <div id="simpleDiv">
-<p id="p1">This is a paragraph.</p>
-<p id="p2">This is another paragraph.</p>
+  <p id="p1">This is a paragraph.</p>
+  <p id="p2">This is another paragraph.</p>
 </div>
+
 <script>
-var parent = document.getElementById("simpleDiv");
-var child = document.getElementById("p1");
-parent.removeChild(child); // remove “p1” from “simpleDiv”
+  var parent = document.getElementById('simpleDiv');
+  var child = document.getElementById('p1');
+
+  parent.removeChild(child); // Remove 'p1' from 'simpleDiv'
 </script>
-Once we have new elements and data on the webpage we need to learn to style
-them and interact. Next we will look at CSS properties and Events.
-CSS Manipulation with JavaScript
-With JavaScript we can also manipulate the attributes and properties of DOM elements, CSS rules
-are regarded as properties of the element. Meaning with the correct code we can adjust CSS values
-of different elements, based on functions, conditions or events. The base structure is as follows:
-document.getElementById(id).style.property name = new style
-Above is the base syntax for adjusting an element’s style (CSS). First we identify the element by it’s
-ID and then we use the “.style” method to tell the DOM we will be making adjustments to those
-properties. After the style method we tell the code which property name to adjust. These are the
-same or very similar to those you use in writing your CSS. For the full list of all the elements in CSS
-and their JS counterparts check out this page.
-http://www.sitestepper.be/en/css-properties-to-javascript-properties-reference-list.htm
-Keep this link handy it’s hard to remember all these properties off by heart. As you can see they are
-similar but not all are exactly the same.
+```
+
+Once we have new elements and data on the webpage we need to learn to style them
+and interact. Next we will look at CSS properties and Events.
+
+## CSS Manipulation with JavaScript
+
+With JavaScript we can also manipulate the attributes and properties of DOM
+elements, CSS rules are regarded as properties of the element. Meaning with the
+correct code we can adjust CSS values of different elements, based on functions,
+conditions or events. The base structure is as follows:
+
+```javascript
+document.getElementById(id).style.propertyName = newStyle
+```
+
+Above is the base syntax for adjusting an element's style (CSS). First we
+identify the element by it's ID and then we use the “.style” method to tell the
+DOM we will be making adjustments to those properties. After the style method we
+tell the code which property name to adjust. These are the same or very similar
+to those you use in writing your CSS. For the full list of all the elements in
+CSS and their JS counterparts check out [this page](http://www.sitestepper.be/en/css-properties-to-javascript-properties-reference-list.htm).
+
+Keep this link handy it's hard to remember all these properties off by heart. As
+you can see they are similar but not all are exactly the same.
+
+```html
 <div id="error"> There has been an error!</div>
 <div id="success"> Awesome Sauce! Things are working!</div>
+
 <script>
-var myNumber = 4;
-Client-Side Scripting: JavaScript and JQuery | Evening Course | 2016 © Friends of Design - Academy of Digital Arts
-33Client-Side Scripting: JavaScript and JQuery | Class Notes
-// set some CSS styles
-document.getElementById("error").style.color = "#ff0000"; // red
-color for text
-document.getElementById("success").style.color = "#009900"; // green
-color for text
-//check to see what the value of myNumber is and if it is more than 5
-we show success
+  var myNumber = 4;
+
+  // Set some CSS styles
+  document.getElementById('error').style.color = "#ff0000"; // red color for text
+  document.getElementById('success').style.color = "#009900"; // green color for text
+
+//check to see what the value of myNumber is and if it is more than 5 we show success
 if(myNumber > 5) {
-document.getElementById("success").style.display = "static";
-document.getElementById("error").style.display = "none";
+  document.getElementById('success').style.display = "static";
+  document.getElementById('error').style.display = "none";
 } else {
-document.getElementById("success").style.display = "none";
-document.getElementById("error").style.display = "static";
+  document.getElementById('success').style.display = "none";
+  document.getElementById('error').style.display = "static";
 }
 </script>
-Try changing the value of “myNumber” to something below 5 and refresh your webpage.
-Event & Listeners
-An event in JavaScript is defined as interaction triggered by a user or function or change in data. In
-JS we can detect these changes and then run new functions or code that will respond to the events.
-Listeners as they are described listen for the event to take place. When the listener recognises an
-event it will then fire off the appropriate code or functions.
+```
+
+Try changing the value of `myNumber` to something below 5 and refresh your
+webpage.
+
+## Event & Listeners
+
+An event in JavaScript is defined as interaction triggered by a user or function
+or change in data. In JS we can detect these changes and then run new functions
+or code that will respond to the events. Listeners as they are described listen
+for the event to take place. When the listener recognises an event it will then
+fire off the appropriate code or functions.
+
 Events can be:
-● When a user clicks the mouse
-● When a web page has loaded
-● When an image has been loaded
-● When the mouse moves over an element
-● When an input field is changed
-● When an HTML form is submitted
-● When a user pressed a key
-There are two common manners in which we add interactive events to webpages in JS, we can
-apply an event function directly to an element. When it is interacted with appropriately it will run
-the code or create an event listener which waits for the appropriate action to occur and then will
-run the code.
-Client-Side Scripting: JavaScript and JQuery | Evening Course | 2016 © Friends of Design - Academy of Digital Arts
-34Client-Side Scripting: JavaScript and JQuery | Class Notes
+
+* When a user clicks the mouse
+* When a web page has loaded
+* When an image has been loaded
+* When the mouse moves over an element
+* When an input field is changed
+* When an HTML form is submitted
+* When a user pressed a key
+
+There are two common manners in which we add interactive events to webpages in
+JS, we can apply an event function directly to an element. When it is interacted
+with appropriately it will run the code or create an event listener which waits
+for the appropriate action to occur and then will run the code.
+
+```html
 <button onclick="this.innerHTML = 'I’ve been Clicked!'">Click on me!</button>
 <button id="clickLink">Click on me!</button>
 <button id="clickLinkAlternative">Click on me!</button>
+
 <script>
-var link = document.getElementById('clickLink');
-link.addEventListener("click", function changeText(){
-link.innerHTML = 'I’ve been Clicked as well!';
-});
-// or like so
-var linkAlternative = document.getElementById('clickLinkAlternative');
-function changeText(){
-linkAlternative.innerHTML = 'Me too! Yay!!';
-}
-linkAlternative.addEventListener("click", changeText);
+  var link = document.getElementById('clickLink');
+
+  link.addEventListener("click", function changeText(){
+    link.innerHTML = 'I’ve been Clicked as well!';
+  });
+
+  // or like so
+  var linkAlternative = document.getElementById('clickLinkAlternative');
+
+  function changeText(){
+    linkAlternative.innerHTML = 'Me too! Yay!!';
+  }
+
+  linkAlternative.addEventListener("click", changeText);
 </script>
-Here three separate sets of code are achieving the same results. It is recommended to use the
-third example as the standard as it provides good control over the code, thus allowing for more
-robust and maintainable code in future.
-We are also able to remove listeners to ensure actions only get completed once. This is commonly
-used when transaction as done or submitted from a button. We want to control the amount of
-interactions the user can allocate to the specific interaction to ensure the don’t do a double
-payment for example. Removing an event listener is the opposite of the adding, we need to tell it
-which element and what type of interaction to remove.
-Using the previous click event listener example see how we would remove the event listener.
-document.getElementById('clickLinkAlternative').removeEventListener(‘click’,
-changeText);
-Client-Side Scripting: JavaScript and JQuery | Evening Course | 2016 © Friends of Design - Academy of Digital Arts
-35Client-Side Scripting: JavaScript and JQuery | Class Notes
-Once again the developers at Mozilla have put together the most comprehensive list available
-about the different events we can listen for. Check the link for reference -
-https://developer.mozilla.org/en-US/docs/Web/Events
+```
+
+Here three separate sets of code are achieving the same results. It is
+recommended to use the third example as the standard as it provides good control
+over the code, thus allowing for more robust and maintainable code in future.
+
+We are also able to remove listeners to ensure actions only get completed once.
+This is commonly used when transaction as done or submitted from a button. We
+want to control the amount of interactions the user can allocate to the specific
+interaction to ensure the don’t do a double payment for example. Removing an
+event listener is the opposite of the adding, we need to tell it which element
+and what type of interaction to remove.
+
+Using the previous click event listener example see how we would remove the
+event listener.
+
+```javascript
+document.getElementById('clickLinkAlternative').removeEventListener(‘click’, changeText);
+```
+
+Once again the developers at Mozilla have put together the most comprehensive
+list available about the different events we can listen for. [Check the link for
+reference](https://developer.mozilla.org/en-US/docs/Web/Events)
