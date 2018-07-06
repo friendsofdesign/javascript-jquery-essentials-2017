@@ -8,3 +8,4 @@
 * [The Developer Environment](chapter_5.md)
 * [The DOM](chapter_6.md)
 * [Common Elements of Programming Languages](chapter_7.md)
+* [JavaScript & Basic Syntax](chapter_8.md)
