@@ -138,7 +138,7 @@ methods.
 * `empty()`: removes the child elements from the selected element.
 
 ```javascript
-$(“div”).remove();
+$("div").remove();
 ```
 
 Would remove that `div` element out of the DOM.
