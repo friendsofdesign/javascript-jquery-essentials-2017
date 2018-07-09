@@ -11,7 +11,7 @@ We can write jQuery on an HTML page, much like we write embedded CSS. We need to
 use a `<script>` tag for this process and write any jQuery with in that
 `<script>` tag.
 
-```javascript
+```html
 <script>
   $(selector).method();
 </script>

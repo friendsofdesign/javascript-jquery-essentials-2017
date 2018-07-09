@@ -6,9 +6,9 @@ and is systematically in relation to other elements. Just like in JavaScript we
 can identify the child or parent (descendents or ancestors) of HTML elements
 from elements we are already know exist.
 
-* *Ancestor:* is a parent, grandparent or great-grandparent
-* *Descendant:* is a child, grandchild or great-grandchild
-* *Siblings:* share the same parent.
+* **Ancestor:** is a parent, grandparent or great-grandparent
+* **Descendant:** is a child, grandchild or great-grandchild
+* **Siblings:** share the same parent.
 
 An example of a basic HTML `<div>` with an unordered list and two list items in
 the unordered list.

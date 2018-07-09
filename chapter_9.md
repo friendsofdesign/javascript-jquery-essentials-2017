@@ -533,7 +533,7 @@ When using the `.innerHTML` method, we can push the values into elements like
 divs or paragraphs.
 
 ```html
-<h3 id=”user”>
+<h3 id="user">
 </h3>
 ```
 
@@ -747,11 +747,11 @@ JavaScript arrays are dynamic. It means that as we already saw you can modify a
 particular element of it, but also that you can add or remove elements from it.
 This is done using the following functions.
 
-* `.unshift`: Add element to the beginning of an array
-* `.shift`: Removes element from the beginning of an array
-* `.push`: Add element to the end of an array
-* `.pop`: Removes element from the end of an array
-* `.splice`: Add or remove element from the middle of an array
+* `.unshift()`: Add element to the beginning of an array
+* `.shift()`: Removes element from the beginning of an array
+* `.push()`: Add element to the end of an array
+* `.pop()`: Removes element from the end of an array
+* `.splice()`: Add or remove element from the middle of an array
 
 The following examples describe how to use these functions.
 
