@@ -132,11 +132,11 @@ Modulo is often used to test if a number is odd or even, as an odd number modulo
 two will be one and an even number modulo two will be zero.
 
 ```javascript
-var remainder = 12 % 2 ;
-//remainder === 0 ;
+var remainder = 12 % 2;
+//remainder === 0;
 
-var remainder = 11 % 2 ;
-//remainder === 1 ;
+var remainder = 11 % 2;
+//remainder === 1;
 ```
 
 #### Strings
@@ -202,6 +202,7 @@ number to a string, you use the method `toString()`.​
 var one = 1;
 var oneAsString = one.toString();
 //oneAsString === '1';
+
 var eleven = oneAsString + oneAsString;
 //eleven === '11';
 ```
@@ -209,13 +210,13 @@ var eleven = oneAsString + oneAsString;
 To convert a string to a number, you use the method `parseInt()`.​
 
 ```javascript
-var twenty = `20`;
-var two = `2`;
+var twenty = '20';
+var two = '2';
 var result = twenty + two;
-//result === `202`;
+//result === '202';
 
-twenty = parseInt(`20`);
-two = parseInt(`2`);
+twenty = parseInt('20');
+two = parseInt('2');
 result = twenty + two;
 //result === 22;
 ```
@@ -224,10 +225,10 @@ If the number has decimal places, you must use `parseFloat()`​ to get the exac
 value.
 
 ```javascript
-var decimal = parseInt(`3.14`);
+var decimal = parseInt('3.14');
 //decimal === 3;
 
-decimal = parseFloat(`3.14`);
+decimal = parseFloat('3.14');
 //decimal === 3.14;
 ```
 
@@ -235,7 +236,7 @@ If you try to convert a bad string to a number, you will get the result `NaN`,
 not a number.
 
 ```javascript
-var notANumber = parseInt(`abc`);
+var notANumber = parseInt('abc');
 //notANumber === NaN;
 ```
 
@@ -277,10 +278,10 @@ outside the function is regarded as having scope that is global to the function
 and rest of the code, referred to as a global variable.
 
 ```javascript
-var myGlobalVariable = "this variable has a global scope";
+var myGlobalVariable = 'this variable has a global scope';
 
 function myLocalFunction() {
-  var myLocalVariable = "this variable has a local scope";
+  var myLocalVariable = 'this variable has a local scope';
 }
 
 // The location where the variable is declared determines its scope
@@ -362,6 +363,7 @@ if (userGender == 'f') {
 } else if (userGender == 'm') {
   title = 'Mr.';
 }
+
 var userWelcomeMessage = 'Hello ' + title + ' ' + userName;
 ```
 
@@ -613,7 +615,7 @@ Another way to access a property is by its name:
 
 ```javascript
 alert(myBook['title']);
-myBook['price']=199;
+myBook['price'] = 199;
 ```
 
 The advantage of accessing a property by its name is that it is more dynamic.
@@ -794,7 +796,7 @@ executed while the length of the `personList` array is greater or equal than
 zero, thus while the array contains elements.
 
 ```javascript
-while(personList.length>0) {
+while(personList.length > 0) {
   windows.alert(personList.pop()) ;
 }
 ```
@@ -1041,9 +1043,9 @@ are adding a new paragraph tag to an existing div.
 
   // Append the child to the p tag ­ add the text to the paragraph tags
   paragraph.appendChild(newNode);
-  //identify the element on page we want to add it to ­ the div with id myArticle
+  // Identify the element on page we want to add it to ­ the div with id myArticle
   var element = document.getElementById('myArticle');
-  // add the paragraph to the div myArticle
+  // Add the paragraph to the div myArticle
   element.appendChild(paragraph);
 </script>
 ```
@@ -1061,7 +1063,7 @@ paragraph in the `myArticle` div.
 
 <script>
   var paragraphC = document.createElement('p');
-  var myNewText = document.createTextNode('This is new text for the new paragraph tag.'');
+  var myNewText = document.createTextNode('This is new text for the new paragraph tag.');
 
   paragraphC.appendChild(myNewText);
 
@@ -1087,7 +1089,7 @@ parent of the element we are looking to remove.
   var parent = document.getElementById('simpleDiv');
   var child = document.getElementById('p1');
 
-  parent.removeChild(child); // Remove 'p1' from 'simpleDiv'
+  parent.removeChild(child); //Remove 'p1' from 'simpleDiv'
 </script>
 ```
 
@@ -1123,15 +1125,15 @@ you can see they are similar but not all are exactly the same.
   var myNumber = 4;
 
   // Set some CSS styles
-  document.getElementById('error').style.color = "#ff0000"; // red color for text
-  document.getElementById('success').style.color = "#009900"; // green color for text
+  document.getElementById('error').style.color = '#ff0000'; // red color for text
+  document.getElementById('success').style.color = '#009900'; // green color for text
 
 //check to see what the value of myNumber is and if it is more than 5 we show success
 if(myNumber > 5) {
-  document.getElementById('success').style.display = "static";
-  document.getElementById('error').style.display = "none";
+  document.getElementById('success').style.display = 'static';
+  document.getElementById('error').style.display = 'none';
 } else {
-  document.getElementById('success').style.display = "none";
+  document.getElementById('success').style.display = 'none';
   document.getElementById('error').style.display = "static";
 }
 </script>
@@ -1164,14 +1166,14 @@ with appropriately it will run the code or create an event listener which waits
 for the appropriate action to occur and then will run the code.
 
 ```html
-<button onclick="this.innerHTML = 'I’ve been Clicked!'">Click on me!</button>
+<button onclick="this.innerHTML = 'I\'ve been Clicked!'">Click on me!</button>
 <button id="clickLink">Click on me!</button>
 <button id="clickLinkAlternative">Click on me!</button>
 
 <script>
   var link = document.getElementById('clickLink');
 
-  link.addEventListener("click", function changeText(){
+  link.addEventListener('click', function changeText(){
     link.innerHTML = 'I’ve been Clicked as well!';
   });
 
@@ -1182,7 +1184,7 @@ for the appropriate action to occur and then will run the code.
     linkAlternative.innerHTML = 'Me too! Yay!!';
   }
 
-  linkAlternative.addEventListener("click", changeText);
+  linkAlternative.addEventListener('click', changeText);
 </script>
 ```
 
@@ -1201,7 +1203,7 @@ Using the previous click event listener example see how we would remove the
 event listener.
 
 ```javascript
-document.getElementById('clickLinkAlternative').removeEventListener(‘click’, changeText);
+document.getElementById('clickLinkAlternative').removeEventListener('click', changeText);
 ```
 
 Once again the developers at Mozilla have put together the most comprehensive
