@@ -12,3 +12,4 @@
 * [Advanced JavaScript Syntax](chapter_9.md)
 * [Building A System With Logic in JavaScript](chapter_10.md)
 * [Setting Up JQuery](chapter_11.md)
+* [JQuery Syntax](chapter_12.md)
